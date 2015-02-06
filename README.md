@@ -17,3 +17,9 @@ mvn exec:java -Dexec.args=5
 # Show me 5000 primes:
 mvn exec:java -Dexec.args=5000
 ```
+
+Greg and I worked on a heuristic that cuts down the number of computations needed to determine if a number is in-fact: Prime.  Here are the runt time results of calculating the first 5000 primes (on my [pretty speedy] iMac)
+```
+Method 1: 1.384s (no heuristic)
+Method 2: 0.765s (with square root heuristic)
+```
