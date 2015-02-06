@@ -1,8 +1,7 @@
 package com.java.learning;
 
 /**
- * Hello world!
- *
+ * 
  */
 public class App 
 {
@@ -46,11 +45,19 @@ public class App
      */
     public static boolean isPrime(int number)
     {
-    	for(int i=2; i<number; i++) {
+    	int countTo = number;
+    	if(number > 4) {
+    		countTo = (int)Math.ceil(Math.sqrt(number))+1;
+    	}
+    	for(int i=2; i<countTo; i++) {
     		if(number % i == 0) {
     			return false;
     		}
     	}
-    	return number > 2;
+    	if(number > 1) {
+    		return true;
+    	} else {
+    		return false;
+    	}
     }
 }

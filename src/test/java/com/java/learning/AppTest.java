@@ -11,7 +11,7 @@ public class AppTest
 	@Test
 	public void testIsPrime() {
 		// It should tell us when a number is prime. 
-		int primes[] = {3,5,7,11,23,73};
+		int primes[] = {2,3,5,7,11,23,73};
 		for(int prime : primes) {
 			assertTrue(prime + " did not register as prime", App.isPrime(prime));
 		}
@@ -20,25 +20,25 @@ public class AppTest
 	@Test
 	public void testIsNotPrime() {
 		// What happens when we give it a number that's "not prime" (by our definition)
-		int nonPrimes[] = {-1,0,1,2,4,6,8,9,10,500,2424};
+		int nonPrimes[] = {-1,0,1,4,6,8,9,10,500,2424};
 		for(int nonPrime : nonPrimes) {
 			assertFalse(nonPrime + " did register as prime", App.isPrime(nonPrime));
 		}
 	}
 	
 	@Test
-	public void testFindNextPrimeLessThan3() {
-		// What happens when we give it a number 2 or less?
-		int lessThan2[] = {-500, -100, -10, -1, 0, 1, 2};
+	public void testFindNextPrimeLessThan2() {
+		// What happens when we give it a number less than 2?
+		int lessThan2[] = {-500, -100, -10, -1, 0, 1};
 		for(int toTest : lessThan2) {
 			int nextPrime = App.findNextPrime(toTest);
-			assertEquals("We didn't get the next prime, it should be 3", 3, nextPrime);
+			assertEquals("We didn't get the next prime, it should be 2", 2, nextPrime);
 		}
 	}
 	
 	@Test
 	public void testFindNextPrime() {
-		int primeSets[][] = {{3,5},{5,7},{7,11}};
+		int primeSets[][] = { {2,3}, {3,5}, {5,7}, {7,11}, {48533, 48539}, {48593, 48611} };
 		for(int[] set : primeSets) {
 			int firstPrime = set[0];
 			int expected = set[1];
