@@ -37,7 +37,8 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>com.java.learning.App</mainClass>
+          <!-- <mainClass>com.java.learning.App</mainClass> -->
+          <mainClass>com.java.learning.greg.IsItPrime</mainClass>
         </configuration>
       </plugin>
     </plugins>
