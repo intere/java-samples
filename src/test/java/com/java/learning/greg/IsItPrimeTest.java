@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.java.learning.App;
-
 public class IsItPrimeTest {
 
 	@Test
