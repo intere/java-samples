@@ -10,7 +10,14 @@ public class GasMileage {
 	private int milesPerGallon;
 	private int totalGallons;
 	private int totalMiles;
-	
+
+    //
+    // Code Review - We'll just have the no-arg constructor delegate to the other constructor
+    //
+    public GasMileage() {
+        this(0, 0);
+    }
+
 	public GasMileage(int gallons, int miles) {
 		setGallons(gallons);
 		setMiles(miles);
@@ -39,22 +46,47 @@ public class GasMileage {
 	
 	public void determineMilesPerGallon() {
 		Scanner input = new Scanner(System.in);
-		while(miles != -1 || gallons != -1) {
+
+        //
+        // Code Review - this should be "&&", not "||"
+        //
+//        while(miles != -1 || gallons != -1) {
+        while(miles != -1 && gallons != -1) {
 			System.out.print("Enter miles or -1 to quit: ");
 			miles = input.nextInt();
-			if(miles == -1)
-				break;
-			System.out.print("Enter gallons or -1 to quit: ");
-			gallons = input.nextInt();
-			if(gallons == -1)
-				break;
-			totalMiles = totalMiles + miles;
-			totalGallons = totalGallons + gallons;
-			
-			System.out.printf("You entered %d miles and %d gallons \n", 
-					miles, gallons);
-			System.out.printf("%d Total miles, %d Total gallons equals %d mpg\n", totalMiles, totalGallons
-					, milesPerGallon());
+
+            //
+            // Code Review: Consider this alternative flow:
+            //
+//			if(miles == -1)
+//				break;
+//			System.out.print("Enter gallons or -1 to quit: ");
+//			gallons = input.nextInt();
+//			if(gallons == -1)
+//				break;
+//			totalMiles = totalMiles + miles;
+//			totalGallons = totalGallons + gallons;
+//
+//			System.out.printf("You entered %d miles and %d gallons \n",
+//					miles, gallons);
+//			System.out.printf("%d Total miles, %d Total gallons equals %d mpg\n", totalMiles, totalGallons
+//					, milesPerGallon());
+
+            if(miles != -1) {
+                System.out.print("Enter gallons or -1 to quit: ");
+                gallons = input.nextInt();
+                if (gallons != -1) {
+
+                    totalMiles = totalMiles + miles;
+                    totalGallons = totalGallons + gallons;
+
+                    System.out.printf("You entered %d miles and %d gallons \n",
+                            miles, gallons);
+                    System.out.printf("%d Total miles, %d Total gallons equals %d mpg\n", totalMiles, totalGallons
+                            , milesPerGallon());
+                }
+            }
+
 		}
 	}
 }
