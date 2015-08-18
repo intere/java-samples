@@ -33,10 +33,13 @@ public class EricsSalesPerWeek {
     }
 
     /**
-     * This is where this class begins reading user input.
+     * This is where this class begins reading user input, this is the program loop.
      */
     public void begin() {
+
+        // As long as we should not exit, keep adding sales:
         while(!exit) {
+
             // First, reset things.
             reset();
 
@@ -45,12 +48,15 @@ public class EricsSalesPerWeek {
                 addSale(currentDay, currentSale);
             }
         }
+
+        // After all is said and done, print out the summary:
         printSummary();
     }
 
     /**
-     *
-     * @return
+     * Reads the sale value, sets the program exit (if the user enters the exit string), sets
+     * the current sale (if valid) and returns true if things are good, false if they're not.
+     * @return True if a valid sale value could be read, false otherwise.
      */
     protected boolean readSale() {
         System.out.print("Enter sale amount (enter '*' to exit): ");
